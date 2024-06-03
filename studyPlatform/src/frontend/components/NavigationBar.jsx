@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import "../stylesheets/NavigationBar.css";
 
+
 export default function NavigationBar() {
   //console.log("rendering NavigationBar");
   return (
