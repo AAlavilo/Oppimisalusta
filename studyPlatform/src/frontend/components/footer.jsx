@@ -12,13 +12,13 @@ const resetStyles = {
 export default function Footer() {
     return (
         
-            <Box sx={{ position:'fixed', left:0, bottom: 0, width: '100vw', height: '6vh', backgroundColor: "#1976d2", display: 'flex', alignItems: 'center', boxShadow: 20 }}>
+            <Box sx={{ position:'fixed', left:0, bottom: 0, width: '100vw', height: '5vh', backgroundColor: "#1976d2", display: 'flex', alignItems: 'center', boxShadow: 20 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexGrow: 1 }}>
-                    <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold', fontSize: 100, px: 10 }}>VILO</Typography>
-                    <InstagramIcon style={{ color: 'white', fontSize: 100 }} />
-                    <LinkedInIcon style={{ color: 'white', fontSize: 100 }} />
+                    <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold', fontSize: "3em", px: 10 }}>VILO</Typography>
+                    <InstagramIcon style={{ color: 'white', fontSize: "2em" }} />
+                    <LinkedInIcon style={{ color: 'white', fontSize: "2em" }} />
                 </Box>
-                <Box sx={{ flexGrow: 1, textAlign: 'center', fontSize: 80 }}>
+                <Box sx={{ flexGrow: 1, textAlign: 'center', fontSize: "2em" }}>
                     <a href="/yhteystiedot" style={{ color: 'white', textDecoration: 'none', marginRight: '60px' }}>Yhteystiedot</a>
                     <a href="/tietosuojakaytanto" style={{ color: 'white', textDecoration: 'none', marginRight: '60px' }}>Tietosuojakäytäntö</a>
                     <a href="/copyright" style={{ color: 'white', textDecoration: 'none' }}>Copyright</a>

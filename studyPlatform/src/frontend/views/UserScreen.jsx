@@ -1,5 +1,5 @@
-import NavigationBar from "./NavigationBar"
-import Footer from "./footer";
+import NavigationBar from "../components/NavigationBar"
+import Footer from "../components/footer";
 import { Box, Typography } from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
 
@@ -8,21 +8,23 @@ import SettingsIcon from '@mui/icons-material/Settings';
 export default function UserScreen() {
     return (
         <>
+        <NavigationBar />
             <Box sx={{
-                height: '100vh',
+                height: '90vh',
                 width: '100vw',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center'
+                justifyContent: "flex-start",
+                alignItems: 'center',
+                backgroundColor: "burlywood",
+                
             }}>
-                <NavigationBar />
-                <Box sx={{ height: '100vh', width: '80vw', backgroundColor: "#404040", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Box sx={{ minHeight: '100%', minWidth: '60%', display: 'flex', flexDirection: 'column', alignItems: "flex-start", px: '40px' }}>
+                
+                    <Box sx={{ minHeight: '100%', minWidth: '60%', display: 'flex', flexDirection: 'column', alignItems: "center", px: '40px', backgroundColor: "burlywood" }}>
                         <Typography
                             variant="h4"
                             component="div"
-                            sx={{ fontSize: 100, color: "white", pt: '200px' }} // Add padding-left to move it a bit from the edge
+                            sx={{ fontSize: 40, color: "black", backgroundColor: "burlywood"}} // Add padding-left to move it a bit from the edge
                         >
                             Olli Opettaja
                         </Typography>
@@ -32,7 +34,7 @@ export default function UserScreen() {
                         </a>
                         <Typography
                             variant="h2"
-                            sx={{ fontSize: 60, color: "white", backgroundColor:"#686868", border: '2px solid black', minWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', pl: '20px', pb: '20px' }} 
+                            sx={{ fontSize: 20, color: "white", backgroundColor:"#686868", border: '2px solid black', minWidth: '60%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', pl: '20px', pb: '20px' }} 
                         >
                             <h4>Käyttäjätiedot</h4>
                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
@@ -45,18 +47,18 @@ export default function UserScreen() {
                                 <div>Lehtori, tieto- ja viestintätekniikka</div>
                             </div>
                         </Typography>
-                        <Box sx={{ backgroundColor:"#686868", border: '2px solid black', minWidth: '100%', minHeight:'1080px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', pl: '20px', pb: '20px', marginTop:'40px'}}>
+                        <Box sx={{ backgroundColor:"#686868", border: '2px solid black', minWidth: '60%', minHeight:'40%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', pl: '20px', pb: '20px', marginTop:'40px'}}>
                         <Typography
                         variant="h2"
-                        sx={{ fontSize: 60, color: "white", fontWeight:'bold', pt:'20px'}} 
+                        sx={{ fontSize: 20, color: "white", fontWeight:'bold', pt:'20px'}} 
                         >
                             Kurssit
                         </Typography>
                         </Box>
                     </Box>
-                </Box>
-                <Footer />
+                
             </Box>
+            <Footer />
         </>
     );
 }
