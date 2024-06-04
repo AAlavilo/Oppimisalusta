@@ -1,13 +1,13 @@
 import './App.css'
-import NavigationBar from './frontend/components/NavigationBar';
+import UserScreen from './frontend/components/UserScreen'
+import Footer from './frontend/components/footer'
+
+
 
 function App() {
-  
-
   return (
     <>
-
-      <NavigationBar />
+     <UserScreen/>
     </>
   )
 }
