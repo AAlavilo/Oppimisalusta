@@ -1,6 +1,6 @@
 import './App.css'
 
-import UserScreen from './frontend/components/UserScreen'
+import UserScreen from './frontend/views/UserScreen'
 import Footer from './frontend/components/footer'
 import NavigationBar from './frontend/components/NavigationBar';
 import Home from './frontend/views/Home';
