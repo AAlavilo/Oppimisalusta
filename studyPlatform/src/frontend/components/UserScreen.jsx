@@ -1,8 +1,7 @@
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "./NavigationBar"
 import Footer from "./footer";
 import { Box, Typography } from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
-import image from "/src/assets/cass_profile_pic.png"
 
 
 
@@ -27,7 +26,7 @@ export default function UserScreen() {
                         >
                             Olli Opettaja
                         </Typography>
-                        <img src={image} alt="Your Image" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                       
                         <a href="/settings">
                             <SettingsIcon sx={{ color: "white", fontSize: 100, pt: '20px' }} />
                         </a>
