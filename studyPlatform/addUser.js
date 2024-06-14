@@ -9,18 +9,18 @@ const addUser = async () => {
   await connectDB();
 
   const newUser = new User({
-    firstName: 'Default',
-    lastName: 'Dandelion',
-    email: 'dandelion.danny@dandyman1.com',
+    firstName: 'Stupendous',
+    lastName: 'Student',
+    email: 'student.danny@dandyman.com',
     profilePic: 'https://plus.unsplash.com/premium_vector-1711987502039-f12a236104b2?bg=FFFFFF&w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D',
     commenting: true,
-    isTeacher: true,
+    isTeacher: false,
     darkTheme: false
   });
 
   try {
-    //await newUser.save();
-    //console.log('User added:', newUser);
+    await newUser.save();
+    console.log('User added:', newUser);
 
     const users = await getAllUsers();
     console.log('users:', users)
