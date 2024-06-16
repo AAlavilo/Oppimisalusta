@@ -19,6 +19,8 @@ export default function Footer() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '10px 20px',
+                position: "fixed",
+                bottom: 0
             }}
         >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
