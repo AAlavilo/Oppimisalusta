@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import NewsCardComponent from "../components/NewsCardComponent";
 import { useState, useEffect } from "react";
 
+
 const NoHoverButton = styled(Button)({
     '&:hover': {
         backgroundColor: 'inherit', // Keeps the background color the same on hover
@@ -19,7 +20,14 @@ export default function Home() {
 
     const [user, setUser] = useState(null);
     const [newsCards, setNewsCards] = useState([]);
+    const [courses, setCourses] = useState([]);
     const buttons = ["Kaikki", "Kommentit", "Ilmiannot", "Uutiset"];
+
+    const enrolledCourses = [
+        { courseId: '101', courseName: 'Matematiikka' },
+        { courseId: '102', courseName: 'Fysiikka' },
+        { courseId: '103', courseName: 'Maantiede' },
+    ];
 
     /*
         useEffect(() => {
@@ -42,6 +50,8 @@ export default function Home() {
             fetchUserData();
         }, []); 
     */
+
+    //Currently gets all the news
     useEffect(() => {
         const fetchNewsCards = async () => {
             try {
@@ -58,6 +68,24 @@ export default function Home() {
             }
         };
         fetchNewsCards();
+    }, []);
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/courses');
+                if (!response.ok) {
+                    console.log("response not ok: ", response)
+                    throw new Error(`Failed to fetch courses: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log("data: ", data)
+                setCourses(data);
+            } catch (error) {
+                console.error('Error fetching courses:', error);
+            }
+        };
+        fetchCourses();
     }, []);
 
     return (
@@ -96,37 +124,87 @@ export default function Home() {
                         ))}
                     </Box>
                 </div>
+
                 <div>
                     <Box sx={{
-                        width: "75vw",
-                        height: "60vh",
-                        backgroundColor: "#F4F4F4",
                         display: "flex",
-                        justifyContent: "center",
-                        overflowY: "scroll"
-                    }}
-                    >
+                        flexDirection: "row"
+                    }}>
                         <Box sx={{
-                            width: "55vw",
-                            minheight: "100%",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            flexShrink: 0,
+                            width: "60vw",
+                            height: "60vh",
+                            backgroundColor: "#F4F4F4",
+                            display: "flex",
+                            justifyContent: "center",
+                            overflowY: "scroll",
+                            marginRight: "3%"
                         }}
                         >
-                            {newsCards.map((card, index) => (
-                                <NewsCardComponent
-                                    key={index}
-                                    refCourse={card.refCourse}
-                                    newsTitle={card.newsTitle}
-                                    message={card.message}
-                                    date={card.date}
-                                    author={card.author}
-                                />
-                            ))}
+                            <Box sx={{
+                                width: "45vw",
+                                minheight: "100%",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                flexShrink: 0,
+                            }}
+                            >
+                                {newsCards.map((card, index) => (
+                                    <NewsCardComponent
+                                        key={index}
+                                        refCourse={card.refCourse}
+                                        newsTitle={card.newsTitle}
+                                        message={card.message}
+                                        date={card.date}
+                                        author={card.author}
+                                    />
+                                ))}
+                            </Box>
                         </Box>
-                    </Box>
+                        <Box
+                            sx={{
+                                width: '20vw',
+                                height: '60vh',
+                                backgroundColor: '#EFEFEF',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                marginLeft: '10px',
+                            }}
+                            >
+                            <Box sx={{
+                                backgroundColor: "#DBDBDB",
+                                marginBottom: "4%"
+                            }}>
+                                <h3>Enrolled Courses</h3>
+                            </Box>
+                            <Box
+                                sx={{
+                                    overflowY: 'scroll',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    height: "100%"
+                                }}
+                            >
+                                {courses.map((course, index) => (
+                                    <Box
+                                        key={index}
+                                        sx={{
+                                            width: '90%',
+                                            
+                                            padding: '3em',
+                                            margin: '5px 0',
+                                            backgroundColor: '#FFF',
+                                            borderRadius: '5px',
+                                            boxShadow: '0 0 5px rgba(0,0,0,0.1)',
+                                        }}
+                                    >
+                                        {course.courseName}
+                                    </Box>
+                                ))}
+                            </Box>
+                        </Box>
 
+                    </Box>
                 </div>
                 <Footer />
             </Box >
