@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import userRoutes from "./src/routes/userRoute.js";
 import newsCardRoutes from "./src/routes/newsCardRoute.js";
+import courseRoutes from "./src/routes/courseRoute.js";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -23,8 +24,8 @@ db.once("open", () => {
 app.use(express.json());
 
 app.use('/api', userRoutes);
-
-app.use("/api", newsCardRoutes)
+app.use("/api", newsCardRoutes);
+app.use("/api", courseRoutes);
 
 app.get("/message", (_, res) => res.send("Hello from express!"));
 
