@@ -32,8 +32,8 @@ export default function LoginScreen() {
                             input: { cursor: 'pointer' },
                             '& .MuiOutlinedInput-root': {'&.Mui-focused fieldset': {borderColor: 'black',},
                         },}}></TextField>
-                         <FormLabel sx={{pl:'40px', pt:'5%', color: 'black','&.Mui-focused': {color: 'black',},}}>Salasana</FormLabel>
-                        <TextField variant="outlined" sx={{
+                        <FormLabel sx={{pl:'40px', pt:'5%', color: 'black','&.Mui-focused': {color: 'black',},}}>Salasana</FormLabel>
+                        <TextField variant="outlined" name="password" type="password" sx={{
                             width:'100%',
                             px:'40px', 
                             height:'50px', 
