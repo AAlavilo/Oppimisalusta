@@ -1,1 +1,12 @@
-<p>user-screen works!</p>
+<div class="user-profile" *ngFor="let user of users;">
+  <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+  
+  <div class="user-info">
+    <div class="user-field">
+        {{ user.profilePic || 'Not set' }}
+    </div>
+    <div class="user-field">
+      <strong>Email:</strong> {{ user.email }}
+    </div>
+  </div>
+</div>
